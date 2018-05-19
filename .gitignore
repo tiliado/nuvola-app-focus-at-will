@@ -1,0 +1,13 @@
+Makefile
+metadata.json
+icons
+/screenshots/
+nuvola-app-focus-at-will
+eu.tiliado.NuvolaAppFocusAtWill.desktop
+eu.tiliado.NuvolaAppFocusAtWill.service
+eu.tiliado.NuvolaAppFocusAtWill.appdata.xml
+nuvola-app-focus-at-will.metainfo.xml
+eu.tiliado.WebRuntimeAppFocusAtWill.desktop
+eu.tiliado.WebRuntimeAppFocusAtWill.service
+eu.tiliado.WebRuntimeAppFocusAtWill.appdata.xml
+nuvola-app-focus-at-will.metainfo.xml
