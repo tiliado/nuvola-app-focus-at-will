@@ -1,5 +1,5 @@
 Focus@Will • Nuvola Apps Runtime
-=================================
+================================
 
 Integration of Focus@Will into your linux desktop via
 [Nuvola Apps Runtime](https://github.com/tiliado/nuvolaruntime).
