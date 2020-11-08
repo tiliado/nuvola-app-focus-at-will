@@ -25,18 +25,18 @@
 'use strict';
 
 (function (Nuvola) {
-  var player = Nuvola.$object(Nuvola.MediaPlayer)
+  const player = Nuvola.$object(Nuvola.MediaPlayer)
 
-  var PlaybackState = Nuvola.PlaybackState
-  var PlayerAction = Nuvola.PlayerAction
+  const PlaybackState = Nuvola.PlaybackState
+  const PlayerAction = Nuvola.PlayerAction
 
-  var WebApp = Nuvola.$WebApp()
+  const WebApp = Nuvola.$WebApp()
 
   // Initialization routines
   WebApp._onInitWebWorker = function (emitter) {
     Nuvola.WebApp._onInitWebWorker.call(this, emitter)
 
-    var state = document.readyState
+    const state = document.readyState
     if (state === 'interactive' || state === 'complete') {
       this._onPageReady()
     } else {
@@ -53,14 +53,14 @@
 
   // Extract data from the web page
   WebApp.update = function () {
-    var track = {
+    const track = {
       title: null,
       artist: null,
       album: null,
       artLocation: null,
       rating: null
     }
-    var elms = this.getElements()
+    const elms = this.getElements()
     if (elms.meta) {
       track.title = elms.meta[0].textContent || null
       track.artist = elms.meta[1].textContent || null
@@ -73,7 +73,7 @@
     }
     player.setTrack(track)
 
-    var state = PlaybackState.UNKNOWN
+    let state = PlaybackState.UNKNOWN
     if (elms.play) {
       state = PlaybackState.PAUSED
     } else if (elms.stop) {
@@ -94,7 +94,7 @@
   }
 
   WebApp._onActionActivated = function (emitter, name, param) {
-    var elms = this.getElements()
+    const elms = this.getElements()
     switch (name) {
       case PlayerAction.TOGGLE_PLAY:
         Nuvola.clickOnElement(elms.stop || elms.play)
@@ -116,7 +116,7 @@
   }
 
   WebApp.getElements = function () {
-    var elms = {
+    const elms = {
       play: document.querySelector('.appContentContainer .playerControls .playButton'),
       stop: null,
       skip: document.querySelector('.appContentContainer .playerControls .skipButton'),
@@ -132,7 +132,7 @@
     if (elms.meta) {
       elms.meta = elms.meta.parentNode.childNodes
     }
-    for (var div of document.querySelectorAll('.appContentContainer div')) {
+    for (const div of document.querySelectorAll('.appContentContainer div')) {
       if (div.style.backgroundImage) {
         elms.background = div.style.backgroundImage + ''
         break
@@ -142,4 +142,4 @@
   }
 
   WebApp.start()
-})(this)  // function(Nuvola)
+})(this) // function(Nuvola)
